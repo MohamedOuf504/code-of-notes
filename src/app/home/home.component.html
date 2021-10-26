@@ -1,0 +1,125 @@
+<section>
+  <div class="container ">
+    <div class="text-end py-4">
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Add Note
+      </button>
+
+      <!-- Modal -->
+      <div class="modal  Addnote fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="true"
+        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="false">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Add Note</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form [formGroup]='noteData' (ngSubmit)="submitnote(noteData)">
+
+              <div class="modal-body">
+                <input type="text" placeholder="title" formControlName='title' class="form-control">
+                <textarea name="" id="" cols="30" rows="10" class="form-control my-2" formControlName='desc'
+                  placeholder="Discrption"></textarea>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save</button>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3 py-2  " *ngFor="let item of allNotes ; let i =index">
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                Do you really want to delete ?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                <button type="button" (click)="deletNote(item._id)" class="btn btn-danger">Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="p-3 text-white bg">
+          <div class="text-end">
+            <i type="button" class=" fas fa-ellipsis-v " data-bs-toggle="dropdown" aria-expanded="false">
+
+            </i>
+            <div class="dropdown-menu">
+
+              <div class=" dropdown-item  d-flex justify-content-between" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">
+
+
+                <span>Delete</span>
+                <i class="far text-danger fa-1x fa-trash-alt px-3"></i>
+              </div>
+              <div class=" dropdown-item   d-flex justify-content-between" (click)="editNote(item.title,item.desc,item._id)"
+                data-bs-toggle="modal" data-bs-target="#edit">
+                <span>Edit</span>
+                <i class="far fa-edit text-info fa-1x px-3"></i>
+              </div>
+
+
+
+            </div>
+
+
+          </div>
+
+          <h4 class="text-danger">
+            {{item.title}}
+          </h4>
+          <p>
+            {{item.desc}}
+          </p>
+
+
+          <!-- Modal -->
+          <div class="modal   fade" id="edit" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="false">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">UpDate Note</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form [formGroup]='upDatanote' (ngSubmit)="updateNote(upDatanote)">
+
+                  <div class="modal-body">
+                    <input type="text" placeholder="title" formControlName='title' class="form-control">
+                    <textarea name="" id="" cols="30" rows="10" class="form-control my-2" formControlName='desc'
+                      placeholder="Discrption"></textarea>
+
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Updata</button>
+                  </div>
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</section>

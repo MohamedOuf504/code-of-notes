@@ -1,0 +1,28 @@
+<div>
+  <particles [params]="myParams" [style]="myStyle" [width]="width" [height]="height"></particles>
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent border-bottom  border-3">
+  <div class="container-fluid">
+    <a class="navbar-brand text-black" routerLink="home">Sticky Notes</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item ">
+          <a class="nav-link  " *ngIf="!islogin" routerLink="login" routerLinkActive="active"> Sign In</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" *ngIf="!islogin" routerLink="register" routerLinkActive="active"> Sign Up</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link  text-danger" *ngIf="islogin" >Hi {{userDate.first_name}}  </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-black" *ngIf="islogin" (click)="logOut()"  >Sign Out </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

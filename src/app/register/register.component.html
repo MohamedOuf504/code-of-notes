@@ -1,0 +1,108 @@
+<section class=" register  d-flex align-items-center">
+  <div class="container ">
+
+
+
+    <form [formGroup]='registerForm' (ngSubmit)="submitRegisterForm(registerForm)"
+      class="row form-style flex-column justify-content-center container align-items-start ">
+
+      <h1 class="pt-5 text-start">
+        REGISTER
+      </h1>
+      <h6 *ngIf="error" class="alert alert-danger col-md-4">
+        {{error}}
+      </h6>
+      <div class="col-md-5">
+        <label for="first_name" class=" py-2">First Name :</label>
+        <input formControlName='first_name' type="text" class="form-control" name="" id="" placeholder="">
+
+
+        <div class=" mt-2  text-danger"
+          *ngIf="registerForm.get('first_name')?.errors!=null&&registerForm.get('first_name')?.touched">
+
+          <h6 *ngIf="registerForm.get('first_name')?.errors?.required ">
+            First name is required
+          </h6>
+          <h6 *ngIf="registerForm.get('first_name')?.errors?.minlength ">
+            First name minLength is 3
+          </h6>
+          <h6 *ngIf="registerForm.get('first_name')?.errors?.maxlength ">
+            First name is maxLength is 8
+          </h6>
+        </div>
+
+      </div>
+      <div class="col-md-5">
+        <label for="last_name" class=" py-2">Last Name :</label>
+        <input formControlName='last_name' type="text" class="form-control" name="" id="" placeholder="">
+        <div class=" mt-2  text-danger"
+          *ngIf="registerForm.get('last_name')?.errors != null &&registerForm.get('last_name')?.touched">
+
+          <h6 *ngIf="registerForm.get('last_name')?.errors?.required ">
+            last name is required
+          </h6>
+          <h6 *ngIf="registerForm.get('last_name')?.errors?.minlength">
+            last name minLength is 3
+          </h6>
+          <h6 *ngIf="registerForm.get('last_name')?.errors?.maxlength ">
+            last name is maxLength is 8
+          </h6>
+        </div>
+
+
+      </div>
+
+      <div class="col-md-5 ">
+        <label for="age" class=" py-2">Age :</label>
+        <input formControlName='age' type="number" class="form-control" name="" id="" placeholder="">
+        <div class=" mt-2 text-danger"
+          *ngIf="registerForm.get('age')?.errors != null&&registerForm.get('age')?.touched">
+          <h6 *ngIf="registerForm.get('age')?.errors?.required ">
+            age First name is required
+          </h6>
+          <h6 *ngIf="registerForm.get('age')?.errors?.min ">
+            age min 16
+          </h6>
+          <h6 *ngIf="registerForm.get('age')?.errors?.max">
+            age is max 80
+          </h6>
+        </div>
+
+      </div>
+      <div class="col-md-5">
+        <label for="email" class=" py-2">Email :</label>
+        <input formControlName='email' type="email" class="form-control" name="" id="" placeholder="">
+        <div class=" mt-2 text-danger"
+          *ngIf="registerForm.get('email')?.errors != null&&registerForm.get('email')?.touched">
+          <h6 *ngIf="registerForm.get('email')?.errors?.required ">
+            email is required
+          </h6>
+          <h6 *ngIf="registerForm.get('email')?.errors?.email ">
+            email is invalid
+          </h6>
+
+        </div>
+      </div>
+
+      <div class="col-md-5">
+        <label for="password" class=" py-2">Password :</label>
+        <input formControlName='password' type="password" class="form-control" name="" id="" placeholder="">
+        <div class=" mt-2 text-danger"
+          *ngIf="registerForm.get('password')?.errors != null&&registerForm.get('password')?.touched">
+          <h6 *ngIf="registerForm.get('password')?.errors?.required ">
+            password is required
+          </h6>
+          <h6 *ngIf="registerForm.get('password')?.errors?.pattern ">
+            password is invalid
+          </h6>
+
+        </div>
+
+      </div>
+      <div class="  col-md-5 py-4 text-center ">
+        <button [disabled]="registerForm.invalid" class=" w-100  btn btn-danger">Register</button>
+      </div>
+    </form>
+
+  </div>
+</section>

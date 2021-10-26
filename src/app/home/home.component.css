@@ -1,0 +1,6 @@
+.bg{
+  background-color: rgba(0, 0, 0, 0.6) !important;
+}
+.dropdown-item{
+  cursor: pointer !important;
+}

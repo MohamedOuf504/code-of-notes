@@ -1,0 +1,50 @@
+<section class=" login  d-flex align-items-center">
+  <div class="container ">
+
+
+
+      <form [formGroup]='logInForm' (ngSubmit)="submitlogInForm(logInForm)" class="row form-style flex-column justify-content-center container align-items-center ">
+
+        <h1 class="pt-5 text-center">
+          LOGIN      </h1>
+      <p  *ngIf="error" class="alert alert-danger col-md-4">
+        {{error}}
+      </p>
+
+                      <div class="col-md-4 py-2">
+                          <label for="email" class="py-2 ">Email</label>
+                          <input formControlName='email' type="email" class="form-control" name="" id="" placeholder="">
+                              <div class="alert mt-2 alert-danger" *ngIf="logInForm.get('email')?.errors != null&&logInForm.get('email')?.touched">
+                                  <h6 *ngIf="logInForm.get('email')?.errors?.required ">
+                                      email is required
+                                  </h6>
+                                  <h6 *ngIf="logInForm.get('email')?.errors?.email ">
+                                      email is invalid
+                                  </h6>
+
+                              </div>
+                          </div>
+
+                          <div class="col-md-4 py-2">
+                              <label for="password" class=" pb-2">password</label>
+                              <input formControlName='password' type="password" class="form-control" name="" id="" placeholder="">
+                                  <div class="alert mt-2 alert-danger" *ngIf="logInForm.get('password')?.errors != null&&logInForm.get('password')?.touched">
+                                      <h6 *ngIf="logInForm.get('password')?.errors?.required ">
+                                          password is required
+                                      </h6>
+                                      <h6 *ngIf="logInForm.get('password')?.errors?.pattern ">
+                                          password is invalid
+                                      </h6>
+
+                                  </div>
+
+                              </div>
+                              <div class=" py-3 col-md-4 text-center ">
+
+                                  <button  [disabled]="logInForm.invalid"  class=" w-100  btn btn-danger">Log in</button>
+
+                              </div>
+                          </form>
+
+                      </div>
+                  </section>
