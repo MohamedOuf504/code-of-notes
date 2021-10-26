@@ -49,7 +49,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-                <button type="button" (click)="deletNote(item._id)" class="btn btn-danger">Delete</button>
+                <button type="button"  class="btn btn-danger"  (click)="deletNote()" >Delete</button>
               </div>
             </div>
           </div>
@@ -61,8 +61,7 @@
             </i>
             <div class="dropdown-menu">
 
-              <div class=" dropdown-item  d-flex justify-content-between" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">
+              <div class=" dropdown-item  d-flex justify-content-between"  (click)="getidNote(item._id) " data-bs-toggle="modal" data-bs-target="#exampleModal">
 
 
                 <span>Delete</span>

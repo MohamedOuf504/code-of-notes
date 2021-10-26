@@ -77,18 +77,25 @@ export class HomeComponent implements OnInit {
 //---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
 
-  deletNote(id: any) {
+  getidNote(id: string)
+  {
+    this.currentId= id
+  }
+
+
+  deletNote() {
 
     let dateOfnote = {
-      NoteID: id,
+      NoteID: this.currentId,
       token: this.token,
     }
     this._AuthService.deleteNote(dateOfnote).subscribe((res) => {
-      console.log(res)
       if (res.message == 'deleted') {
-        $('#exampleModal').modal("hide")
+
 
         this.getAllnote()
+        $('#exampleModal').modal("hide")
+
       }
       else {
         sessionStorage.clear()
