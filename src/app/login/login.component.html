@@ -33,8 +33,8 @@
                                           password is required
                                       </h6>
                                       <h6 *ngIf="logInForm.get('password')?.errors?.pattern ">
-                                          password is invalid
-                                      </h6>
+                                        *password must contain at min 1 characters
+                                        *password min 6 max 10                                        </h6>
 
                                   </div>
 

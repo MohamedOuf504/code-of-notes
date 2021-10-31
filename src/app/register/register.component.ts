@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
 
     email: new FormControl(null, [Validators.required, Validators.email]),
 
-    password: new FormControl(null, [Validators.required, Validators.pattern(`^[A-z][0-9]{4,8}$`)]),
+    password: new FormControl(null, [Validators.required, Validators.pattern(`^[A-z]+[0-9]{6,10}$`)]),
 
   })
   constructor( public _AuthService:AuthService , public _Router :Router) { }
